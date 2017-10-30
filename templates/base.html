@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html><center>
+    <h1>
+        <title>{{page_title}}</title>
+        <style>
+            .error{
+                color: red; 
+                
+            }
+        </style>
+    </h1>
+
+<body>
+    <nav><center>
+      
+            <p><a href="/login">login</a>
+            <a href="/logout">logout</a>
+        
+            <a href="/">home</a>
+            <a href="/blog">all posts</a>
+            <a href="/blog/newpost">new post</a></p>
+    </center>   
+    </nav>
+
+    {% with messages = get_flashed_messages(with_categories=True) %}
+        <ul>
+        {% for category,message in messages %}
+            <li class="{{category}}">{{message}}</li>
+        {% endfor %}
+        </ul>
+    {% endwith %}
+
+    {% block content %}
+    {% endblock %}
+</center>
+</body>
+</html>

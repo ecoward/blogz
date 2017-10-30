@@ -1,0 +1,22 @@
+{% block content %}
+<center><nav>
+    
+          <p><a href="/login">login</a>
+          <a href="/logout">logout</a>
+      
+          <a href="/">home</a>
+          <a href="/blog">all posts</a>
+          <a href="/blog/newpost">new post</a></p>
+     
+  </nav>
+<h1>Blog Users!</h1>
+    {% if users|length == 0 %}
+    <p>No registered users yet</p>
+    {% else %}
+        <ul>
+        {% for user in users %}
+            <li><a href="/blog?user={{user.username}}">{{user.username}}</a></li>
+        {% endfor %}
+        </ul></center>
+    {% endif %}
+{% endblock %}
